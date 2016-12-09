@@ -1,0 +1,34 @@
+h2{
+    color: darkolivegreen;
+    font-family: Calibri;
+    font-size: 50px;
+}
+
+h4{
+    color: black;
+    font-family: Georgia;
+    font-size: 20px;
+}
+
+.jumbotron{
+    background-color: #f6d4f7;
+    width: 700px;
+    text-align: center;
+    margin-top: 20px    ;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table{
+    margin-top: 20px;
+}
+.form-control{
+    margin-bottom: 5px;
+}
+.selecionado{
+    color: #fffdff;
+    background-color: #ff0008;
+}
+.riscado{
+    text-decoration: line-through;
+    font-weight: bolder;
+}

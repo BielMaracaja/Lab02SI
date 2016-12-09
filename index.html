@@ -1,0 +1,60 @@
+<html ng-app="ListaDeTarefas">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/cyborg.css">
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body ng-controller="listaDeTarefasCtrl">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Menu: </a>
+                <a class="navbar-btn btn btn" href="#" onclick="location.href= 'https://github.com/BielMaracaja'">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="center-block container text-center">
+        <h2>{{app}}</h2>
+        <h4>{{'Quantidade de Tarefas: ' + quantidadeTarefas(tarefas)}}</h4>
+        <h4>{{'Tarefas Realizadas: ' + tarefasRealizadas()}}</h4>
+
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Tarefa</th>
+                <th>Número</th>
+            </tr>
+            <tr ng-class="{'selecionado riscado': tarefa.selecionado}" ng-repeat="tarefa in tarefas">
+                <td><input type="checkbox" ng-model="tarefa.selecionado"/></td>
+                <td>{{tarefa.tarefa}}</td>
+                <td>{{tarefa.numero}}</td>
+            </tr>
+        </table>
+
+        <hr/>
+
+        <div class="progress">
+            <div class="progress-bar" ng-style="{width : ( barraDePorcentagem() + '%' ) }">
+                {{barraDePorcentagem() + '%'}}
+            </div>
+        </div>
+
+        <input class="form-control" type="text" ng-model="tarefa.tarefa" placeholder="Tarefa"/>
+        <input class="form-control" type="text" ng-model="tarefa.numero" placeholder="Número"/>
+        <button class="btn btn-success btn-block" ng-click="adicionarTarefa(tarefa)" ng-disabled="!tarefa.tarefa||!tarefa.numero">Adicionar Tarefa</button>
+        <button class="btn btn-danger btn-block" ng-click="apagarTarefa(tarefas)" ng-if="isTarefaSelecionado(tarefas)">Apagar Tarefa(s) Selecionada(s)</button>
+        <button class="btn btn-warning btn-block" ng-click="apagarTudo()" ng-if="listaNaoVazia()">Apagar Toda a Lista</button>
+    </div>
+
+</body>
+</html>
