@@ -5,7 +5,11 @@ angular.module("ListaDeTarefas").controller("listaDeTarefasCtrl", function ($sco
     $scope.tarefas = [
         {tarefa: "Estudar SI", numero: "1"},
         {tarefa: "Arrumar a Casa", numero: "2"},
-        {tarefa: "Comprar pão", numero: "3"}
+        {tarefa: "Comprar pão", numero: "3"},
+        {tarefa: "Codar", numero: "4"},
+        {tarefa: "Desenvolve App", numero: "5"},
+        {tarefa: "Trabalhar na Gerencia de Requisitos", numero: "6"},
+        {tarefa: "Trabalhar na Gerencia de Riscos", numero: "7"}
     ];
 
     $scope.adicionarTarefa = function (tarefa){
